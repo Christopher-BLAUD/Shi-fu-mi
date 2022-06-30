@@ -4,9 +4,9 @@ function Title() {
     return (
         <TitleWrapper>
             <HomeTitle>
-                <TitleName>ROCK</TitleName>
-                <TitleName>PAPER</TitleName>
-                <TitleName>SCISSORS</TitleName>
+                <TitleName delay="1s">SHI</TitleName>
+                <TitleName delay="2s">FU</TitleName>
+                <TitleName delay="3s">MI</TitleName>
             </HomeTitle>
             <ScoreBox>
                 <ScoreName>SCORE</ScoreName>
@@ -22,9 +22,9 @@ const TitleWrapper = styled.div`
     align-items: center;
     width: 750px;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 2px 20px;
     border: 3px solid #ffffff4d;
-    margin-top: 40px;
+    margin-top: 30px;
     border-radius: 15px
 `
 
@@ -33,16 +33,19 @@ const HomeTitle = styled.h1`
     flex-direction: column;
 `
 
+
+
 const TitleName = styled.span`
     margin: 0;
-    line-height: 0.8;
+    line-height: 1;
     font-size: 1.7em;
     margin-left: 10px;
     color: #fff;
 `
 
 const ScoreBox = styled.div`
-    display: flex;flex-direction: column;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 160px;
@@ -64,5 +67,6 @@ const Score = styled.span`
     font-weight: bold;
     line-height: 1;
 `
+
 
 export default Title
