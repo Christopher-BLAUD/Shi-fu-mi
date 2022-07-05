@@ -1,11 +1,13 @@
 import styled, { keyframes } from "styled-components"
 import { Link } from 'react-router-dom'
 import sifu from './assets/sifu.png'
+import music from '../../assets/golden_dragon.mp3'
 
 function Home() {
  return (
     <HomeWrapper>
         <GoPlay to={'/game'}>Jouer !</GoPlay>
+        {/* <audio src={music} autoPlay></audio> */}
         <IntroContainer>
             <ImgContainer>
                 <Img src={sifu} alt="maitre wang"/>
@@ -23,6 +25,10 @@ const Reveal = keyframes`
     to{
         opacity: 1;
     }
+`
+
+const Audio = styled.audio`
+    
 `
 
 const HomeWrapper = styled.main`
@@ -55,6 +61,9 @@ const GoPlay = styled(Link)`
     &:hover{
         transform: scale(1.1)
     }
+    @media screen and (max-width: 768px){
+        top: 70px;
+    }
     @media screen and (max-width: 768px) and (orientation: landscape){
         top: 206px;
         right: 78px;
@@ -85,8 +94,7 @@ const ImgContainer = styled.div`
     position: relative;
     @media screen and (max-width: 768px){
         width: 340px;
-        height: 342px;
-        margin-top: 50px;
+        height: 402px;
         flex-direction: column-reverse;
     }
     @media screen and (min-width: 768px) and (max-width: 1024px){
@@ -125,7 +133,7 @@ const SpeechBubble = styled.p`
     @media screen and (max-width: 768px){
         background-color: transparent;
         color: #fff;
-        top: -200px;
+        top: -140px;
         left: 0 
     }
     @media screen and (max-width: 768px) and (orientation: landscape){
@@ -141,7 +149,7 @@ const SpeechBubble = styled.p`
         font-size: 25px;
         width: 330px;
     }
-    @media screen (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
+    @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
         background-color: transparent;
         color: #fff;
         top: -152px;
