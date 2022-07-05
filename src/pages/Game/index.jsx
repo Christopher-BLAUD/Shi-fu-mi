@@ -3,6 +3,7 @@ import Title from '../../components/Title/index'
 import PaperIcon from "../../components/GameButton/Paper/index";
 import ScissorsIcon from "../../components/GameButton/Scissors/index";
 import RockIcon from "../../components/GameButton/Rock/index";
+import Rules from '../../components/Rules/index'
 import { useContext } from 'react'
 import { GameContext } from "../../utils/context";
 import { useNavigate } from 'react-router-dom'
@@ -31,6 +32,7 @@ function Game() {
                     <RockIcon/>
                 </IconWrapper>
             </GameContainer>
+            <Rules/>
         </GameWrapper>
     )
 }
@@ -40,9 +42,7 @@ const GameWrapper = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
-    @media screen and (max-width: 768px){
-        height: 100vh;
-    }
+    position: relative;
 `
 
 const GameContainer = styled.section`
@@ -60,6 +60,7 @@ const GameContainer = styled.section`
     @media screen and (max-width: 768px){
         flex-direction: column;
         width: 340px;
+        height: auto;
     }
     @media screen and (min-width: 768px) and (max-width: 1024px){
         flex-direction: row;

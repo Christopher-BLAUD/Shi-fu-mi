@@ -107,6 +107,10 @@ const NoResults = styled.p`
     justify-content: center;
     color: #fff;
     font-size: 18px;
+    @media screen and (max-width: 768px){
+        text-align: center;
+        margin: 30px 0;
+    }
 `
 
 const Choices = styled.section`
@@ -199,17 +203,22 @@ const ResultTitle = styled.h2`
 `
 
 const Redirect = styled(Link)`
-    background-color: #be7400;
+    background: linear-gradient(to right, #a8ff78, #78ffd6);
+    letter-spacing: 1px;
+    color: #000;
     padding: 15px 30px;
-    margin-top: 20px;
+    margin: 10px 0;
     font-size: 16px;
-    color: #fff;
+    font-weight: 500;
     border: none;
     border-radius: 25px;
     max-width: 400px;
     cursor: pointer;
     transition: all 200ms;
     text-decoration: none;
+    &:hover{
+        transform: scale(1.1)
+    }
     &:hover{
         transform: scale(1.1)
     }

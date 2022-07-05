@@ -1,13 +1,11 @@
 import styled, { keyframes } from "styled-components"
 import { Link } from 'react-router-dom'
 import sifu from './assets/sifu.png'
-import music from '../../assets/golden_dragon.mp3'
 
 function Home() {
  return (
     <HomeWrapper>
         <GoPlay to={'/game'}>Jouer !</GoPlay>
-        {/* <audio src={music} autoPlay></audio> */}
         <IntroContainer>
             <ImgContainer>
                 <Img src={sifu} alt="maitre wang"/>
@@ -25,10 +23,6 @@ const Reveal = keyframes`
     to{
         opacity: 1;
     }
-`
-
-const Audio = styled.audio`
-    
 `
 
 const HomeWrapper = styled.main`
