@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import Title from '../../components/Title/index'
 import PaperIcon from "../../components/GameButton/Paper/index";
 import ScissorsIcon from "../../components/GameButton/Scissors/index";
@@ -22,13 +22,13 @@ function Game() {
         <GameWrapper>
             <Title/>
             <GameContainer>
-                <IconWrapper top="0" left="0" onClick={() => sendChoice('paper')}>
+                <IconWrapper top="0" left="0" delay="200ms" onClick={() => sendChoice('paper')}>
                     <PaperIcon/>
                 </IconWrapper>
-                <IconWrapper top="0" right="0" onClick={() => sendChoice('scissors')}>
+                <IconWrapper top="0" right="0" delay="600ms" onClick={() => sendChoice('scissors')}>
                     <ScissorsIcon/>
                 </IconWrapper>
-                <IconWrapper top="250px" onClick={() => sendChoice('rock')}>
+                <IconWrapper top="250px" delay="1000ms" onClick={() => sendChoice('rock')}>
                     <RockIcon/>
                 </IconWrapper>
             </GameContainer>
@@ -37,6 +37,14 @@ function Game() {
     )
 }
 
+const ShowGame= keyframes`
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+`
 
 const GameWrapper = styled.main`
     display: flex;
@@ -70,7 +78,8 @@ const GameContainer = styled.section`
 const IconWrapper = styled.div.attrs(props => ({
     top: props.top,
     left: props.left,
-    right: props.right
+    right: props.right,
+    delay: props.delay
 }))`
     display: flex;
     justify-content: center;
@@ -79,6 +88,7 @@ const IconWrapper = styled.div.attrs(props => ({
     top: ${props => props.top};
     left: ${props => props.left};
     right: ${props => props.right};
+    animation: ${ShowGame} 1s linear ${props => props.delay} both;
     cursor: pointer;
     transition: all 500ms;
     &:hover{

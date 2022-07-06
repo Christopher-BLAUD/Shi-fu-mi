@@ -112,11 +112,19 @@ const NoResults = styled.p`
         margin: 30px 0;
     }
 `
-
+const ShowResult = keyframes`
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+`
 const Choices = styled.section`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    animation: ${ShowResult} 1s linear both;
     @media screen and (max-width: 768px){
         flex-direction: column;
         margin: 100px 0;

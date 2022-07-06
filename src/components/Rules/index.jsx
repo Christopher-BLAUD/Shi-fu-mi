@@ -6,7 +6,6 @@ import RockImg from '../GameButton/Rock/assets/icon-rock.svg'
 
 function Rules() {
     const [isVisible, setIsVisible] = useState(false)
-
     return isVisible ? (
         <RulesWrapper>
             <RulesContainer>
@@ -68,7 +67,7 @@ const RulesWrapper = styled.div`
     align-items: center;
     background-color: #000000db;
     position: absolute;
-    z-index: 200;
+    z-index: 1000;
     height: 100%;
     width: 100%;
     top: 0;
