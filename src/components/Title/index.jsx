@@ -27,11 +27,11 @@ const TitleWrapper = styled.header`
     width: 750px;
     border-radius: 5px;
     padding: 2px 20px;
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
     border-radius: 15px;
-    transform: perspective(800px) rotateX(20deg);
-    box-shadow: 0px 8px 10px #4c3a3a;
+    box-shadow: 0px 0px 21px #0000003b;
+    background-color: #ffffff52;
     margin-top: 20px;
+    color: #A16800;
     @media screen and (max-width: 768px){
         flex-direction: column;
         width: 240px;
@@ -52,8 +52,7 @@ const TitleName = styled.span`
     margin: 0;
     font-size: 1.7em;
     margin-top: ${props => props.marginTop};
-    color: #FFA500;
-    text-shadow: 0px 8px 10px #4c3a3a;
+    color: #A16800;
     @media screen and (max-width: 768px){
         font-size: 35px;
     }
@@ -67,7 +66,6 @@ const ScoreBox = styled.div`
     width: 160px;
     height: 110px;
     margin: 10px 0;
-    border: 3px solid #FFA500;
     border-radius: 7px;
     @media screen and (max-width: 768px){
         width: 115px;
@@ -76,14 +74,14 @@ const ScoreBox = styled.div`
 `
 
 const ScoreName = styled.span`
-    color: #FFA500;
+    color: inherit;
     font-size: 14px;
     font-weight: bold;
     letter-spacing: 2px;
 `
 
 const Score = styled.span`
-    color: #fff;
+    color: #000;
     font-size: 3em;
     font-weight: bold;
     line-height: 1;

@@ -18,6 +18,7 @@ const ScissorsIconWrapper = styled.div`
     justify-content: center;
     position: relative;
     z-index: 100;
+    margin: 0 20px;
 `
 
 const IconBox = styled.div`
@@ -31,8 +32,8 @@ const IconBox = styled.div`
     box-shadow: 0px -8px 2px #00000069 inset;
     transition: all .5s;
     @media screen and (max-width: 768px){
-        width: 150px;
-        height: 150px;
+        width: 130px;
+        height: 130px;
     }
 `
 
@@ -46,8 +47,8 @@ const Icon = styled.div`
     background-color: #fff;
     box-shadow: 0px 6px 2px #00000069 inset;
     @media screen and (max-width: 768px){
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
     }
 `
 

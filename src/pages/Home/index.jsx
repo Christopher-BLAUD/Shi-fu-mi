@@ -9,7 +9,7 @@ function Home() {
         <IntroContainer>
             <ImgContainer>
                 <Img src={sifu} alt="maitre wang"/>
-                <SpeechBubble>Bonjour, je suis Maitre Wang. Sauras-tu me battre au Shi-Fu-Mi ?</SpeechBubble>
+                <SpeechBubble>Bonjour, je suis Maitre Wang. Seras-tu capable de me vaincre au Shi-Fu-Mi ?</SpeechBubble>
             </ImgContainer>
         </IntroContainer>
     </HomeWrapper>
@@ -36,13 +36,12 @@ const HomeWrapper = styled.main`
 `
 
 const GoPlay = styled(Link)`
-    background: linear-gradient(to right, #a8ff78, #78ffd6);
-    letter-spacing: 1px;
+    background: linear-gradient(to right, #f12711, #f5af19);
     color: #000;
     padding: 15px 30px;
     margin: 10px 0;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 700;
     border: none;
     border-radius: 25px;
     max-width: 400px;
@@ -111,7 +110,7 @@ const SpeechBubble = styled.p`
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #000;
+    color: #A16800;
     background-color: #fff;
     width: 255px;
     height: 150px;
@@ -126,7 +125,6 @@ const SpeechBubble = styled.p`
     animation: ${Reveal} 2s linear 1s both;
     @media screen and (max-width: 768px){
         background-color: transparent;
-        color: #fff;
         top: -140px;
         left: 0 
     }

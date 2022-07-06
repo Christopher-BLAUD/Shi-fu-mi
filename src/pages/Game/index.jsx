@@ -51,12 +51,14 @@ const GameWrapper = styled.main`
     flex-direction: column;
     align-items: center;
     position: relative;
+    height: 100%;
 `
 
 const GameContainer = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-flow: row wrap;
     width: 500px;
     height: 400px;
     margin-top: 100px;
@@ -65,29 +67,17 @@ const GameContainer = styled.section`
     background-size: contain;
     background-position: center;
     position: relative;
-    @media screen and (max-width: 768px){
-        flex-direction: column;
+    @media screen and (max-width: 767px){
         width: 340px;
-        height: auto;
-    }
-    @media screen and (min-width: 768px) and (max-width: 1024px){
-        flex-direction: row;
+        height: 250px;
+        margin: 70px 0;
     }
 `
 
-const IconWrapper = styled.div.attrs(props => ({
-    top: props.top,
-    left: props.left,
-    right: props.right,
-    delay: props.delay
-}))`
+const IconWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: ${props => props.top};
-    left: ${props => props.left};
-    right: ${props => props.right};
     animation: ${ShowGame} 1s linear ${props => props.delay} both;
     cursor: pointer;
     transition: all 500ms;
@@ -102,5 +92,4 @@ const IconWrapper = styled.div.attrs(props => ({
         margin: 0 10px;
     }
 `
-
 export default Game

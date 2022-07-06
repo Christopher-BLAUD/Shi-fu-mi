@@ -47,7 +47,8 @@ const RulesLink = styled.a`
     width: 130px;
     height: 45px;
     border: 3px solid #af7317;
-    color: #fff;
+    background-color: #ffffff52;
+    color: #A16800;
     font-weight: bold;
     border-radius: 10px;
     position: absolute;
@@ -55,8 +56,8 @@ const RulesLink = styled.a`
     right: 20px;
     cursor: pointer;
     @media screen and (max-width: 768px){
-        position: initial;
         margin: 20px 0;
+        bottom: 0;
     }
 `
 
@@ -65,7 +66,7 @@ const RulesWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #000000db;
+    background-color: #000000cf;
     position: absolute;
     z-index: 1000;
     height: 100%;

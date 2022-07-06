@@ -10,8 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url('./assets/wood_texture.png');
-  background-size: cover;
+  background-color: #ffe9c2;
 }
 
 code {

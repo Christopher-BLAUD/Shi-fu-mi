@@ -57,9 +57,9 @@ function Result() {
                 <PlayerIconWrapper>
                     {isPlayerWin && 
                         <ShadowWrapper>
-                            <Shadow width="300px" height="300px" shadowColor="#ffffff38" zIndex="3" delay="100ms"/>
-                            <Shadow width="450px" height="450px" shadowColor="#ffffff42" zIndex="2" delay="200ms"/>
-                            <Shadow width="600px" height="600px" shadowColor="#ffffff17" zIndex="1" delay="300ms"/>                          
+                            <Shadow width="300px" height="300px" shadowColor="#0000002e" zIndex="3" delay="100ms"/>
+                            <Shadow width="450px" height="450px" shadowColor="#00000014" zIndex="2" delay="200ms"/>
+                            <Shadow width="600px" height="600px" shadowColor="#00000017" zIndex="1" delay="300ms"/>                          
                         </ShadowWrapper>
                     }
                     {choice === 'paper' && <PaperIcon/>}
@@ -75,9 +75,9 @@ function Result() {
                 <ComputerIconWrapper>
                 {isPlayerWin === false && 
                         <ShadowWrapper>
-                            <Shadow width="300px" height="300px" shadowColor="#ffffff38" zIndex="3" delay="100ms"/>
-                            <Shadow width="450px" height="450px" shadowColor="#ffffff42" zIndex="2" delay="200ms"/>
-                            <Shadow width="600px" height="600px" shadowColor="#ffffff17" zIndex="1" delay="300ms"/>                    
+                            <Shadow width="300px" height="300px" shadowColor="#0000002e" zIndex="3" delay="100ms"/>
+                            <Shadow width="450px" height="450px" shadowColor="#00000014" zIndex="2" delay="200ms"/>
+                            <Shadow width="600px" height="600px" shadowColor="#00000017" zIndex="1" delay="300ms"/>                    
                         </ShadowWrapper>
                     }
                     {computerChoice === 1 && <PaperIcon/>}
@@ -105,7 +105,7 @@ const ResultWrapper = styled.main`
 const NoResults = styled.p`
     display: flex;
     justify-content: center;
-    color: #fff;
+    color: #A16800;
     font-size: 18px;
     @media screen and (max-width: 768px){
         text-align: center;
@@ -125,11 +125,15 @@ const Choices = styled.section`
     justify-content: space-around;
     align-items: center;
     animation: ${ShowResult} 1s linear both;
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 767px){
         flex-direction: column;
+        margin: 30px 0;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1024px){
+        flex-direction: row;
         margin: 100px 0;
     }
-    @media screen and (min-width: 768px) and (min-width: 1024px) and (orientation: landscape) {
+    @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
         margin: 100px 0;
     }
 `
@@ -155,7 +159,7 @@ const ShadowWrapper = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
-    left: 90px;
+    left: 109px;
     @media screen and (max-width: 768px){
         display: none;
     }
@@ -203,7 +207,7 @@ const ResultText = styled.div`
 
 const ResultTitle = styled.h2`
     font-size: 40px;
-    color: #fff;
+    color: #A16800;
     margin: 0;
     @media screen and (max-width: 768px){
         font-size: 30px;
@@ -211,7 +215,7 @@ const ResultTitle = styled.h2`
 `
 
 const Redirect = styled(Link)`
-    background: linear-gradient(to right, #a8ff78, #78ffd6);
+    background: linear-gradient(to right, #f12711, #f5af19);
     letter-spacing: 1px;
     color: #000;
     padding: 15px 30px;
