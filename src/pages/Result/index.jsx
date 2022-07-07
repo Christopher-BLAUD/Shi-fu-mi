@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import PaperIcon from "../../components/GameButton/Paper"
 import RockIcon from "../../components/GameButton/Rock"
 import ScissorsIcon from "../../components/GameButton/Scissors"
-import Title from '../../components/Title/index'
 import { useContext } from 'react'
 import { GameContext } from "../../utils/context";
 
@@ -52,9 +51,9 @@ function Result() {
 
     return choice !== "" ? (
         <ResultWrapper>
-                <Title/>
             <Choices>
                 <PlayerIconWrapper>
+                    <PlayerName>Christopher</PlayerName>
                     {isPlayerWin && 
                         <ShadowWrapper>
                             <Shadow width="300px" height="300px" shadowColor="#0000002e" zIndex="3" delay="100ms"/>
@@ -68,12 +67,13 @@ function Result() {
                 </PlayerIconWrapper>
                 <ResultText>
                     {isPlayerWin && <ResultTitle>VICTOIRE !</ResultTitle>}
-                    {isPlayerWin === false && <ResultTitle>Perdu ...</ResultTitle>}
-                    {isPlayerWin === undefined && <ResultTitle>Egalité</ResultTitle>}
+                    {isPlayerWin === false && <ResultTitle>PERDU...</ResultTitle>}
+                    {isPlayerWin === undefined && <ResultTitle>ÉGALITÉ</ResultTitle>}
                     <Redirect to={"/game"}>Jouer</Redirect>
                 </ResultText>
                 <ComputerIconWrapper>
-                {isPlayerWin === false && 
+                    <PlayerName>Maitre Wang</PlayerName>
+                    {isPlayerWin === false && 
                         <ShadowWrapper>
                             <Shadow width="300px" height="300px" shadowColor="#0000002e" zIndex="3" delay="100ms"/>
                             <Shadow width="450px" height="450px" shadowColor="#00000014" zIndex="2" delay="200ms"/>
@@ -127,7 +127,9 @@ const Choices = styled.section`
     animation: ${ShowResult} 1s linear both;
     @media screen and (max-width: 767px){
         flex-direction: column;
-        margin: 30px 0;
+    }
+    @media screen and (max-width: 767px) and (orientation: landscape){
+        flex-direction: row;
     }
     @media screen and (min-width: 768px) and (max-width: 1024px){
         flex-direction: row;
@@ -140,6 +142,7 @@ const Choices = styled.section`
 
 const PlayerIconWrapper = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -148,10 +151,20 @@ const PlayerIconWrapper = styled.div`
 
 const ComputerIconWrapper = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
     z-index: 1;
+    @media screen and (max-width: 768px){
+        flex-direction: column-reverse;
+    }
+    @media screen and (max-width: 768px) and (orientation: landscape){
+        flex-direction: column;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1024px){
+        flex-direction: column;
+    }
 `
 
 const ShadowWrapper = styled.div`
@@ -159,7 +172,8 @@ const ShadowWrapper = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
-    left: 109px;
+    left: 0;
+    top: 87px;
     @media screen and (max-width: 768px){
         display: none;
     }
@@ -201,7 +215,7 @@ const ResultText = styled.div`
     position: relative;
     z-index: 100;
     @media screen and (max-width: 768px){
-        margin: 25px 0;
+        margin: 40px 0;
     }
 `
 
@@ -210,7 +224,7 @@ const ResultTitle = styled.h2`
     color: #A16800;
     margin: 0;
     @media screen and (max-width: 768px){
-        font-size: 30px;
+        font-size: 38px;
     }
 `
 
@@ -235,7 +249,18 @@ const Redirect = styled(Link)`
         transform: scale(1.1)
     }
     @media screen and (max-width: 768px){
-        padding: 10px 30px;
+        padding: 10px 50px;
+    }
+`
+
+const PlayerName = styled.span`
+    color: #f12711;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Gantari, Verdana, Geneva, Tahoma, sans-serif;
+    margin: 40px 0;
+    @media screen and (max-width: 768px){
+        margin: 20px 0;
     }
 `
 export default Result

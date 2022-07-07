@@ -52,6 +52,10 @@ const GameWrapper = styled.main`
     align-items: center;
     position: relative;
     height: 100%;
+    width: 100%;
+    @media screen and (max-width: 768px) and (orientation: landscape){
+        height: auto;
+    } 
 `
 
 const GameContainer = styled.section`
@@ -83,6 +87,9 @@ const IconWrapper = styled.div`
     transition: all 500ms;
     &:hover{
         transform: scale(1.2);
+        @media screen and (max-width: 768px){
+        transform: scale(1);
+    }
     }
     @media screen and (max-width: 768px){
         position: initial;

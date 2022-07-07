@@ -1,17 +1,18 @@
 import styled, { keyframes } from "styled-components"
 import { Link } from 'react-router-dom'
+import Seater from "../../components/Seater/index"
 import sifu from './assets/sifu.png'
 
 function Home() {
  return (
     <HomeWrapper>
-        <GoPlay to={'/game'}>Jouer !</GoPlay>
         <IntroContainer>
             <ImgContainer>
                 <Img src={sifu} alt="maitre wang"/>
-                <SpeechBubble>Bonjour, je suis Maitre Wang. Seras-tu capable de me vaincre au Shi-Fu-Mi ?</SpeechBubble>
+                <SpeechBubble>Bonjour, je suis Maitre Wang. Seras-tu capable de me vaincre ?</SpeechBubble>
             </ImgContainer>
         </IntroContainer>
+        <Seater/>
     </HomeWrapper>
  )
 }
@@ -32,41 +33,10 @@ const HomeWrapper = styled.main`
     align-items: center;
     position: relative;
     height: 100%;
+    width: 1000px;
     overflow: hidden;
-`
-
-const GoPlay = styled(Link)`
-    background: linear-gradient(to right, #f12711, #f5af19);
-    color: #000;
-    padding: 15px 30px;
-    margin: 10px 0;
-    font-size: 16px;
-    font-weight: 700;
-    border: none;
-    border-radius: 25px;
-    max-width: 400px;
-    cursor: pointer;
-    transition: all 200ms;
-    text-decoration: none;
-    position: absolute;
-    top: 70px;
-    animation: ${Reveal} 1s linear 3s both;
-    &:hover{
-        transform: scale(1.1)
-    }
-    @media screen and (max-width: 768px){
-        top: 70px;
-    }
     @media screen and (max-width: 768px) and (orientation: landscape){
-        top: 206px;
-        right: 78px;
-    }
-    @media screen and (min-width: 768px) and (max-width: 1024px){
-        font-size: 30px;
-        border-radius: 30px;
-    }
-    @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-        font-size: 25px;
+        height: auto;
     }
 `
 
@@ -89,6 +59,9 @@ const ImgContainer = styled.div`
         width: 340px;
         height: 402px;
         flex-direction: column-reverse;
+    }
+    @media screen and (max-width: 768px) and (orientation: landscape){
+        height: 250px;
     }
     @media screen and (min-width: 768px) and (max-width: 1024px){
         width: 460px;
@@ -119,7 +92,7 @@ const SpeechBubble = styled.p`
     padding:0 50px;
     border-radius: 50%;
     position: absolute;
-    top: -50px;
+    top: -0px;
     right: -230px;
     opacity: 0;
     animation: ${Reveal} 2s linear 1s both;

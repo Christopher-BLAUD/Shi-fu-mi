@@ -9,7 +9,7 @@ function Title() {
         <TitleWrapper>
             <HomeTitle>
                 <TitleName>SHI</TitleName>
-                <TitleName marginTop="3px" color="#644d29">FU</TitleName>
+                <TitleName marginTop="3px">FU</TitleName>
                 <TitleName>MI</TitleName>
             </HomeTitle>
             <ScoreBox>
