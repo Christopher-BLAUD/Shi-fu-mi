@@ -98,7 +98,7 @@ function Result() {
             <Choices>
                 <PlayerIconWrapper>
                     {playerOne && <PlayerName>{playerOne}</PlayerName>}
-                    {!playerOne && <PlayerName>Toi</PlayerName>}
+                    {!playerOne && <PlayerName>Vous</PlayerName>}
                     {(isPlayerWin || isPlayerOneWin) && 
                         <ShadowWrapper>
                             <Shadow width="300px" height="300px" shadowColor="#0000002e" zIndex="3" delay="100ms"/>

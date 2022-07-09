@@ -12,15 +12,18 @@ function Seater() {
 
 const Reveal = keyframes`
     from{
+        visibility: hidden;
         opacity: 0;
     }
     to{
+        visibility: visible;
         opacity: 1;
     }
 `
 
 const SeaterWrapper = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 450px;
@@ -40,6 +43,7 @@ const SeaterWrapper = styled.div`
     }
 `
 const GoPlay = styled(Link)`
+    visibility: hidden;
     background-color: #12127e;
     color: #fff;
     padding: 15px 30px;

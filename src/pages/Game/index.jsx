@@ -76,7 +76,7 @@ const GameWrapper = styled.main`
 
 const OptionsContainer = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 100%;
 `
 

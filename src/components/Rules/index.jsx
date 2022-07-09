@@ -12,6 +12,7 @@ function Rules() {
                     <Cross onClick={() => setIsVisible(false)}><i className="fa-solid fa-xmark"></i></Cross>
                 </TitleContainer>
                 <PictureContainer>
+                    <Caption>Instructions : à tour de rôle, chaque joueur sélectionne une icône</Caption>
                     <Picture src={RulesImg} />
                 </PictureContainer>
             </Container>
@@ -115,6 +116,7 @@ const Picture = styled.img`
 
 const PictureContainer = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 450px;
@@ -124,5 +126,7 @@ const PictureContainer = styled.div`
         height: 320px;
     }
 `
-
+const Caption = styled.p`
+    font-weight: 500;
+`
 export default Rules

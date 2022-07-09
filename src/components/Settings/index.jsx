@@ -20,7 +20,6 @@ const Settings = styled(Link)`
     margin: 10px;
     cursor: pointer;
     text-decoration: none;
-    align-self: flex-start;
 `
 
 export default SettingsButton

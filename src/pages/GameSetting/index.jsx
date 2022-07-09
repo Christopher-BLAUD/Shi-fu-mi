@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom'
+
 function GameSetting() {
     return (
         <SettingWrapper>
@@ -9,7 +10,7 @@ function GameSetting() {
                 <TitleWord>MI</TitleWord>
             </TitleGame>
             <GameModeContainer>
-                <WelcomeMsg>Bienvenue dans l'univers du Shi fu mi. Avant tout, veuillez choisir un mode de jeu.</WelcomeMsg>
+                <WelcomeMsg>Bienvenue dans Shi fu mi. Veuillez choisir un mode de jeu.</WelcomeMsg>
                 <GameMode>
                     <Mode bg="#0fa021" to={'/home-pvp'}>Jouer contre un ami</Mode>
                     <Mode bg="#12127e" to={'/home'} onClick={() => localStorage.clear()}>Jouer contre Maitre Wang</Mode>
@@ -70,7 +71,7 @@ const WelcomeMsg = styled.p`
     width: 450px;
     text-align: center;
     margin: 10px 0;
-    color: #A16800;
+    color: #000;
     @media screen and (max-width: 768px){
         font-size: 20px;
         text-align: center;
