@@ -5,6 +5,7 @@ import ScissorsIcon from "../../components/GameButton/Scissors/index";
 import RockIcon from "../../components/GameButton/Rock/index";
 import Rules from '../../components/Rules/index'
 import SettingsButton from '../../components/Settings';
+import Mute from '../../components/Mute';
 import { useContext } from 'react'
 import { GameContext } from "../../utils/context";
 import { useNavigate, Link } from 'react-router-dom'
@@ -46,6 +47,7 @@ function Game() {
                 </IconWrapper>
             </GameContainer>
             <OptionsContainer>
+                <Mute/>
                 <SettingsButton to={'/'} onClick={() => localStorage.clear()}><i className="fa-solid fa-gear"></i></SettingsButton>
                 <Rules/>
             </OptionsContainer>
@@ -69,6 +71,9 @@ const GameWrapper = styled.main`
     height: 100%;
     width: 100%;
     position: relative;
+    @media screen and (max-width: 768px){
+        justify-content: space-evenly;
+    }
     @media screen and (max-width: 768px) and (orientation: landscape){
         height: auto;
     } 
@@ -77,6 +82,7 @@ const GameWrapper = styled.main`
 const OptionsContainer = styled.div`
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     width: 100%;
 `
 

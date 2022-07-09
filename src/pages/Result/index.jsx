@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components"
 import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import PaperIcon from "../../components/GameButton/Paper"
 import RockIcon from "../../components/GameButton/Rock"
 import ScissorsIcon from "../../components/GameButton/Scissors"
@@ -57,27 +57,33 @@ function Result() {
     useEffect(() => {
         if(playerOneChoice === "paper" && playerTwoChoice === "scissors"){
             setIsPlayerTwoWin(true)
+            setIsPlayerOneWin(false)
             setPlayerTwoScore(playerTwoScore + 1)
         } else if (playerOneChoice === "paper" && playerTwoChoice === "rock"){
             setIsPlayerOneWin(true)
+            setIsPlayerTwoWin(false)
             setPlayerOneScore(playerOneScore + 1)
         } else if(playerOneChoice === "paper" && playerTwoChoice === "paper"){
             setIsPlayerOneWin(undefined)
             setIsPlayerTwoWin(undefined)
         } else if(playerOneChoice === "scissors" && playerTwoChoice === "rock"){
             setIsPlayerTwoWin(true)
+            setIsPlayerOneWin(false)
             setPlayerTwoScore(playerTwoScore + 1)
         } else if(playerOneChoice === "scissors" && playerTwoChoice === "paper"){
             setIsPlayerOneWin(true)
+            setIsPlayerTwoWin(false)
             setPlayerOneScore(playerOneScore + 1)
         } else if(playerOneChoice === "scissors" && playerTwoChoice === "scissors"){
             setIsPlayerOneWin(undefined)
             setIsPlayerTwoWin(undefined)
         } else if(playerOneChoice === "rock" && playerTwoChoice === "paper"){
             setIsPlayerTwoWin(true)
+            setIsPlayerOneWin(false)
             setPlayerTwoScore(playerTwoScore + 1)
         } else if(playerOneChoice === "rock" && playerTwoChoice === "scissors"){
             setIsPlayerOneWin(true)
+            setIsPlayerTwoWin(false)
             setPlayerOneScore(playerOneScore + 1)
         } else if(playerOneChoice === "rock" && playerTwoChoice === "rock"){
             setIsPlayerOneWin(undefined)

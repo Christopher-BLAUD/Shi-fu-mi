@@ -10,6 +10,7 @@ export const GameProvider = ({children}) => {
     const [score, setScore] = useState(0)
     const [playerOneScore, setPlayerOneScore] = useState(0)
     const [playerTwoScore, setPlayerTwoScore] = useState(0)
+    const [isMute, setIsMute] = useState(false)
 
     return (
         <GameContext.Provider value={
@@ -20,7 +21,8 @@ export const GameProvider = ({children}) => {
                 playerOneScore, setPlayerOneScore, 
                 playerTwoScore, setPlayerTwoScore,
                 playerOneChoice, setPlayerOneChoice,
-                playerTwoChoice, setPlayerTwoChoice 
+                playerTwoChoice, setPlayerTwoChoice,
+                isMute, setIsMute
             }}>
             {children}
         </GameContext.Provider>

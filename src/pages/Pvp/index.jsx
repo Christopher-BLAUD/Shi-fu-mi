@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { useNavigate } from 'react-router-dom'
 import { useState } from "react"
 import SettingButton from '../../components/Settings/index'
+import Mute from "../../components/Mute"
 
 
 function Pvp() {
@@ -49,6 +50,7 @@ const setPlayers = () => {
                 )}
                 <Button onClick={setPlayers}>Jouer</Button>
             <SettingButton/>
+            <Mute/>
             </InfoContainer>
         </InfoWrapper>
     )
