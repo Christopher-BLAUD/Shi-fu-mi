@@ -3,7 +3,9 @@ import { useContext } from 'react'
 import { GameContext } from "../../utils/context";
 
 function Title() {
-    const { score } = useContext(GameContext)
+    let playerOne = localStorage.getItem('playerOne');
+    let playerTwo = localStorage.getItem('playerTwo');
+    const { score, playerOneScore, playerTwoScore } = useContext(GameContext)
 
     return (
         <TitleWrapper>
@@ -12,10 +14,28 @@ function Title() {
                 <TitleName marginTop="3px">FU</TitleName>
                 <TitleName>MI</TitleName>
             </HomeTitle>
-            <ScoreBox>
-                <ScoreName>SCORE</ScoreName>
-                <Score>{ score }</Score>
-            </ScoreBox>
+            {playerOne && playerTwo ? (
+                <ScoreBox>
+                    <ScoreName>SCORE</ScoreName>
+                    <ScoreContainer>
+                        <PlayerContainer>
+                            <Player>{ playerOne }</Player>
+                            <Score>{ playerOneScore }</Score>
+                        </PlayerContainer>
+                        <PlayerContainer>
+                            <Player>{ playerTwo }</Player>
+                            <Score>{ playerTwoScore }</Score>
+                        </PlayerContainer>
+                    </ScoreContainer>                    
+                </ScoreBox>   
+                ) : (
+                    <ScoreBox>
+                    <ScoreName>SCORE</ScoreName>
+                    <Score>{ score }</Score>
+                </ScoreBox>  
+                )
+            }
+            
         </TitleWrapper>
     )
 }
@@ -26,7 +46,7 @@ const TitleWrapper = styled.header`
     align-items: center;
     width: 750px;
     border-radius: 5px;
-    padding: 2px 20px;
+    padding: 20px 30px;
     border-radius: 15px;
     box-shadow: 0px 0px 21px #0000003b;
     background-color: #ffffff52;
@@ -74,22 +94,35 @@ const ScoreBox = styled.div`
 `
 
 const ScoreName = styled.span`
-    color: inherit;
-    font-size: 14px;
+    color: #000;
+    font-size: 16px;
     font-weight: bold;
     letter-spacing: 2px;
+    margin: 10px 0;
 `
 
 const Score = styled.span`
     color: #000;
     font-size: 3em;
-    font-weight: bold;
+    font-weight: 400;
     line-height: 1;
     @media screen and (max-width: 768px){
         font-size: 2em;
         margin-top: 10px;
     }
 `
+const ScoreContainer = styled.div`
+    display: flex;
+`
 
-
+const Player = styled.span`
+    font-weight: 800;
+`
+const PlayerContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 20px;
+`
 export default Title

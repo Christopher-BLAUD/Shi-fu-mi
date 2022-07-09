@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components"
-import { Link } from 'react-router-dom'
 import Seater from "../../components/Seater/index"
 import sifu from './assets/sifu.png'
 
@@ -32,12 +31,8 @@ const HomeWrapper = styled.main`
     flex-direction: column;
     align-items: center;
     position: relative;
-    height: 100%;
-    width: 1000px;
+    height: 100vh;
     overflow: hidden;
-    @media screen and (max-width: 768px) and (orientation: landscape){
-        height: auto;
-    }
 `
 
 const IntroContainer = styled.section`
@@ -109,14 +104,14 @@ const SpeechBubble = styled.p`
     }
     @media screen and (min-width: 768px) and (max-width: 1024px){
         background-color: transparent;
-        color: #fff;
+        color: #000;
         left: 10px;
         font-size: 25px;
         width: 330px;
     }
     @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
         background-color: transparent;
-        color: #fff;
+        color: #000;
         top: -152px;
     }
     &::before{

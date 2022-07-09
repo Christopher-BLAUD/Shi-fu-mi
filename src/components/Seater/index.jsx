@@ -35,10 +35,13 @@ const SeaterWrapper = styled.div`
     @media screen and (max-width: 768px) and (orientation: landscape){
         height: 130px;
     }
+    @media screen and (min-width: 768px) and (max-width: 1024px){
+        width: 450px;
+    }
 `
 const GoPlay = styled(Link)`
-    background: linear-gradient(to right, #f12711, #f5af19);
-    color: #000;
+    background-color: #12127e;
+    color: #fff;
     padding: 15px 30px;
     font-size: 16px;
     font-weight: 700;

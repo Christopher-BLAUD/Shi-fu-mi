@@ -32,8 +32,8 @@ const IconBox = styled.div`
     box-shadow: 0px -8px 2px #00000069 inset;
     transition: all .5s;
     @media screen and (max-width: 768px){
-        width: 130px;
-        height: 130px;
+        width: 110px;
+        height: 110px;
     }
 `
 
@@ -47,8 +47,8 @@ const Icon = styled.div`
     background-color: #fff;
     box-shadow: 0px 6px 2px #00000069 inset;
     @media screen and (max-width: 768px){
-        width: 90px;
-        height: 90px;
+        width: 80px;
+        height: 80px;
     }
 `
 

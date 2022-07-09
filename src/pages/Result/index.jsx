@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components"
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import PaperIcon from "../../components/GameButton/Paper"
 import RockIcon from "../../components/GameButton/Rock"
 import ScissorsIcon from "../../components/GameButton/Scissors"
@@ -10,11 +10,15 @@ import { GameContext } from "../../utils/context";
 
 function Result() {
     const [isPlayerWin, setIsPlayerWin] = useState(false)
-    const { choice } = useContext(GameContext)
-    const {score, setScore} = useContext(GameContext)
+    const [isPlayerOneWin, setIsPlayerOneWin] = useState(false)
+    const [isPlayerTwoWin, setIsPlayerTwoWin] = useState(false)
+    const { choice, playerOneChoice, playerTwoChoice, setPlayerOneChoice, setPlayerTwoChoice } = useContext(GameContext)
+    const {score, setScore, playerOneScore, setPlayerOneScore, playerTwoScore, setPlayerTwoScore} = useContext(GameContext)
     const { computerChoice } = useContext(GameContext)
+    let playerOne = localStorage.getItem('playerOne')
+    let playerTwo = localStorage.getItem('playerTwo')
 
-
+    // Gestion des résultats contre l'IA
     useEffect(() => {
         if(choice === 'paper' && computerChoice === 2){
             setIsPlayerWin(false)
@@ -49,47 +53,99 @@ function Result() {
         }
     }, [])
 
-    return choice !== "" ? (
+    // Gestion des résultats en multijoueur
+    useEffect(() => {
+        if(playerOneChoice === "paper" && playerTwoChoice === "scissors"){
+            setIsPlayerTwoWin(true)
+            setPlayerTwoScore(playerTwoScore + 1)
+        } else if (playerOneChoice === "paper" && playerTwoChoice === "rock"){
+            setIsPlayerOneWin(true)
+            setPlayerOneScore(playerOneScore + 1)
+        } else if(playerOneChoice === "paper" && playerTwoChoice === "paper"){
+            setIsPlayerOneWin(undefined)
+            setIsPlayerTwoWin(undefined)
+        } else if(playerOneChoice === "scissors" && playerTwoChoice === "rock"){
+            setIsPlayerTwoWin(true)
+            setPlayerTwoScore(playerTwoScore + 1)
+        } else if(playerOneChoice === "scissors" && playerTwoChoice === "paper"){
+            setIsPlayerOneWin(true)
+            setPlayerOneScore(playerOneScore + 1)
+        } else if(playerOneChoice === "scissors" && playerTwoChoice === "scissors"){
+            setIsPlayerOneWin(undefined)
+            setIsPlayerTwoWin(undefined)
+        } else if(playerOneChoice === "rock" && playerTwoChoice === "paper"){
+            setIsPlayerTwoWin(true)
+            setPlayerTwoScore(playerTwoScore + 1)
+        } else if(playerOneChoice === "rock" && playerTwoChoice === "scissors"){
+            setIsPlayerOneWin(true)
+            setPlayerOneScore(playerOneScore + 1)
+        } else if(playerOneChoice === "rock" && playerTwoChoice === "rock"){
+            setIsPlayerOneWin(undefined)
+            setIsPlayerTwoWin(undefined)
+        }
+    }, [])
+
+    // Réinitialise les résultats
+    const clearResults = () => {
+        setPlayerOneChoice("")
+        setPlayerTwoChoice("")
+        setIsPlayerOneWin(false)
+        setIsPlayerTwoWin(false)
+    }
+
+    return (choice !== "" || playerOneChoice !== "") ? (
         <ResultWrapper>
             <Choices>
                 <PlayerIconWrapper>
-                    <PlayerName>Christopher</PlayerName>
-                    {isPlayerWin && 
+                    {playerOne && <PlayerName>{playerOne}</PlayerName>}
+                    {!playerOne && <PlayerName>Toi</PlayerName>}
+                    {(isPlayerWin || isPlayerOneWin) && 
                         <ShadowWrapper>
                             <Shadow width="300px" height="300px" shadowColor="#0000002e" zIndex="3" delay="100ms"/>
                             <Shadow width="450px" height="450px" shadowColor="#00000014" zIndex="2" delay="200ms"/>
                             <Shadow width="600px" height="600px" shadowColor="#00000017" zIndex="1" delay="300ms"/>                          
                         </ShadowWrapper>
                     }
-                    {choice === 'paper' && <PaperIcon/>}
-                    {choice === 'scissors' && <ScissorsIcon/>}
-                    {choice === "rock" && <RockIcon/>}
+                    {(choice === 'paper' || playerOneChoice === 'paper') && <PaperIcon/>}
+                    {(choice === 'scissors' || playerOneChoice === 'scissors') && <ScissorsIcon/>}
+                    {(choice === "rock" || playerOneChoice === 'rock') && <RockIcon/>}
                 </PlayerIconWrapper>
                 <ResultText>
-                    {isPlayerWin && <ResultTitle>VICTOIRE !</ResultTitle>}
-                    {isPlayerWin === false && <ResultTitle>PERDU...</ResultTitle>}
-                    {isPlayerWin === undefined && <ResultTitle>ÉGALITÉ</ResultTitle>}
-                    <Redirect to={"/game"}>Jouer</Redirect>
+                    {(isPlayerWin && !playerOneChoice) && <ResultTitle>VICTOIRE !</ResultTitle>}
+                    {(isPlayerWin === false && !playerOneChoice) && <ResultTitle>PERDU...</ResultTitle>}
+                    {(isPlayerWin === undefined && !playerOneChoice) && <ResultTitle>ÉGALITÉ</ResultTitle>}
+                    {isPlayerOneWin && <ResultTitle>Victoire pour { playerOne }</ResultTitle>}
+                    {isPlayerTwoWin && <ResultTitle>Victoire pour { playerTwo }</ResultTitle>}
+                    {(isPlayerOneWin === undefined && isPlayerTwoWin === undefined) && <ResultTitle>ÉGALITÉ</ResultTitle>}
+                    <Redirect to={"/game"} onClick={clearResults}>Jouer</Redirect>
                 </ResultText>
                 <ComputerIconWrapper>
-                    <PlayerName>Maitre Wang</PlayerName>
-                    {isPlayerWin === false && 
+                    {playerTwo && <PlayerName>{playerTwo}</PlayerName>}
+                    {!playerTwo && <PlayerName>Maitre Wang</PlayerName>}
+                    {(isPlayerWin === false && !playerOneChoice) && 
                         <ShadowWrapper>
                             <Shadow width="300px" height="300px" shadowColor="#0000002e" zIndex="3" delay="100ms"/>
                             <Shadow width="450px" height="450px" shadowColor="#00000014" zIndex="2" delay="200ms"/>
                             <Shadow width="600px" height="600px" shadowColor="#00000017" zIndex="1" delay="300ms"/>                    
                         </ShadowWrapper>
                     }
-                    {computerChoice === 1 && <PaperIcon/>}
-                    {computerChoice === 2 && <ScissorsIcon/>}
-                    {computerChoice === 3 && <RockIcon/>}
+                    {isPlayerTwoWin &&
+                        <ShadowWrapper>
+                            <Shadow width="300px" height="300px" shadowColor="#0000002e" zIndex="3" delay="100ms"/>
+                            <Shadow width="450px" height="450px" shadowColor="#00000014" zIndex="2" delay="200ms"/>
+                            <Shadow width="600px" height="600px" shadowColor="#00000017" zIndex="1" delay="300ms"/>                    
+                        </ShadowWrapper>
+                    }
+                    {(computerChoice === 1 || playerTwoChoice === 'paper') && <PaperIcon/>}
+                    {(computerChoice === 2 || playerTwoChoice === 'scissors') && <ScissorsIcon/>}
+                    {(computerChoice === 3 || playerTwoChoice === 'rock') && <RockIcon/>}
                 </ComputerIconWrapper>
             </Choices>
         </ResultWrapper>
     ) : (
         <ResultWrapper>
             <NoResults>Veuillez d'abord jouer pour afficher les résultats</NoResults>
-            <Redirect to={"/game"}>JOUER</Redirect>
+            <Redirect to={"/game"} onClick={clearResults}>JOUER</Redirect>
         </ResultWrapper>
     )
 }
@@ -100,6 +156,7 @@ const ResultWrapper = styled.main`
     justify-content: space-between;
     align-items: center;
     position: relative;
+    padding: 60px 0;
 `
 
 const NoResults = styled.p`
@@ -223,6 +280,7 @@ const ResultTitle = styled.h2`
     font-size: 40px;
     color: #A16800;
     margin: 0;
+    text-align: center;
     @media screen and (max-width: 768px){
         font-size: 38px;
     }
@@ -230,12 +288,11 @@ const ResultTitle = styled.h2`
 
 const Redirect = styled(Link)`
     background: linear-gradient(to right, #f12711, #f5af19);
-    letter-spacing: 1px;
-    color: #000;
+    color: #fff;
     padding: 15px 30px;
     margin: 10px 0;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     border: none;
     border-radius: 25px;
     max-width: 400px;

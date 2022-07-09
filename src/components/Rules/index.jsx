@@ -9,7 +9,7 @@ function Rules() {
             <Container>
                 <TitleContainer>
                     <Title>RÈGLES</Title>
-                    <Cross onClick={() => setIsVisible(false)}><i class="fa-solid fa-xmark"></i></Cross>
+                    <Cross onClick={() => setIsVisible(false)}><i className="fa-solid fa-xmark"></i></Cross>
                 </TitleContainer>
                 <PictureContainer>
                     <Picture src={RulesImg} />
@@ -41,14 +41,9 @@ const RulesLink = styled.a`
     color: #A16800;
     font-weight: bold;
     border-radius: 10px;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    margin: 10px;
+    align-self: flex-end;
     cursor: pointer;
-    @media screen and (max-width: 768px){
-        margin: 20px 0;
-        bottom: 0;
-    }
 `
 
 const RulesWrapper = styled.div`
@@ -61,9 +56,11 @@ const RulesWrapper = styled.div`
     z-index: 1000;
     height: 100%;
     width: 100%;
+    padding: 45px 0;
     top: 0;
     left: 0;
     animation: ${ShowModal} 500ms ease-in-out both;
+
 `
 
 const Container = styled.div`
@@ -72,7 +69,6 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     width: 500px;
-    height: 555px;
     background-color: #fff;
     position: relative;
     @media screen and (max-width: 768px){
@@ -91,8 +87,7 @@ const TitleContainer = styled.div`
     justify-content: space-between;
     width: calc(100% - 40px);
     padding: 0 20px;
-    position: absolute;
-    top: 20px;
+    margin: 20px 0;
 `
 
 const Cross = styled.div`

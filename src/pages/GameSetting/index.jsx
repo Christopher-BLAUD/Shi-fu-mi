@@ -8,11 +8,13 @@ function GameSetting() {
                 <TitleWord marginTop="3px">FU</TitleWord>
                 <TitleWord>MI</TitleWord>
             </TitleGame>
-            <WelcomeMsg>Bienvenue dans l'univers du Shi fu mi. Avant tout, veuillez choisir un mode de jeu.</WelcomeMsg>
-            <GameMode>
-                <Mode bg="#0fa021" to={'/home-pvp'}>Jouer contre un ami</Mode>
-                <Mode bg="#12127e" to={'/home'}>Jouer contre Maitre Wang</Mode>
-            </GameMode>
+            <GameModeContainer>
+                <WelcomeMsg>Bienvenue dans l'univers du Shi fu mi. Avant tout, veuillez choisir un mode de jeu.</WelcomeMsg>
+                <GameMode>
+                    <Mode bg="#0fa021" to={'/home-pvp'}>Jouer contre un ami</Mode>
+                    <Mode bg="#12127e" to={'/home'} onClick={() => localStorage.clear()}>Jouer contre Maitre Wang</Mode>
+                </GameMode>
+            </GameModeContainer>
         </SettingWrapper>
     )
 }
@@ -23,17 +25,33 @@ const SettingWrapper = styled.main`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
-    position: relative;
+`
+
+const GameModeContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background-color: #fcefd9;
+    border-radius: 10px;
+    margin: 50px 0;
+    @media screen and (max-width: 768px){
+        padding: 0;
+    }
+    @media screen and (max-width: 768px) and (orientation: landscape){
+        margin: 100px 0;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1024px){
+        width: 500px;
+    }
 `
 
 const TitleGame = styled.h1`
     display: flex;
     font-size: 1.7em;
     color: #A16800;
-    position: absolute;
-    top: 20px;
+    margin: 20px 0;
 `
 
 const TitleWord = styled.span`
@@ -47,15 +65,23 @@ const TitleWord = styled.span`
 `
 
 const WelcomeMsg = styled.p`
-    font-family: Kalam, Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
     font-size: 25px;
+    width: 450px;
+    text-align: center;
     margin: 10px 0;
+    color: #A16800;
     @media screen and (max-width: 768px){
         font-size: 20px;
         text-align: center;
-        padding: 0 15px;
-        margin-top: 100px;
+        padding: 30px 15px;
+        width: 300px;
+    }
+    @media screen and (max-width: 768px) and (orientation: landscape){
+        width: 450px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1024px){
+        width: 450px;
     }
 `
 
@@ -79,9 +105,16 @@ const Mode = styled(Link).attrs(props => ({
     background-color: ${props =>  props.bg};
     color: #fff;
     margin: 0 50px;
+    transition: all 200ms;
+    &:hover{
+        transform: scale(0.9);
+    }
     @media screen and (max-width: 768px){
         min-width: 200px;
         margin: 10px 0;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1024px){
+        margin: 10px 20px;
     }
 `
 export default GameSetting

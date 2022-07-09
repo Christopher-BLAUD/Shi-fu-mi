@@ -4,18 +4,31 @@ import PaperIcon from "../../components/GameButton/Paper/index";
 import ScissorsIcon from "../../components/GameButton/Scissors/index";
 import RockIcon from "../../components/GameButton/Rock/index";
 import Rules from '../../components/Rules/index'
+import SettingsButton from '../../components/Settings';
 import { useContext } from 'react'
 import { GameContext } from "../../utils/context";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 function Game() {
-    const { setChoice, setComputerChoice } = useContext(GameContext)
+    const { setChoice, setComputerChoice, playerOneChoice, setPlayerOneChoice, playerTwoChoice, setPlayerTwoChoice } = useContext(GameContext)
     const navigate = useNavigate()
+    let playerOne = localStorage.getItem('playerOne')
+    let playerTwo = localStorage.getItem('playerTwo')
+
 
     const sendChoice = (choice) => {
-        setChoice(choice)
-        setComputerChoice(Math.floor(Math.random() * (4 - 1) + 1))
-        navigate('/result')
+            if(playerOne && playerTwo){
+                if(playerOneChoice === ""){
+                    setPlayerOneChoice(choice)
+                }  else{
+                    setPlayerTwoChoice(choice)
+                    navigate('/result')
+                }         
+            } else {
+                setChoice(choice)
+                setComputerChoice(Math.floor(Math.random() * (4 - 1) + 1))
+                navigate('/result')
+            }
     }
 
     return (
@@ -32,7 +45,10 @@ function Game() {
                     <RockIcon/>
                 </IconWrapper>
             </GameContainer>
-            <Rules/>
+            <OptionsContainer>
+                <SettingsButton to={'/'} onClick={() => localStorage.clear()}><i className="fa-solid fa-gear"></i></SettingsButton>
+                <Rules/>
+            </OptionsContainer>
         </GameWrapper>
     )
 }
@@ -50,12 +66,18 @@ const GameWrapper = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
     height: 100%;
     width: 100%;
+    position: relative;
     @media screen and (max-width: 768px) and (orientation: landscape){
         height: auto;
     } 
+`
+
+const OptionsContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 `
 
 const GameContainer = styled.section`
@@ -72,9 +94,9 @@ const GameContainer = styled.section`
     background-position: center;
     position: relative;
     @media screen and (max-width: 767px){
-        width: 340px;
-        height: 250px;
-        margin: 70px 0;
+        width: 320px;
+        height: auto;
+        margin: 55px 0;
     }
 `
 
