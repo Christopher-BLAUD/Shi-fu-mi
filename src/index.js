@@ -6,7 +6,6 @@ import Result from './pages/Result';
 import Game from './pages/Game/index';
 import GameSetting from './pages/GameSetting';
 import Pvp from './pages/Pvp';
-import Music from './components/Music';
 import { createGlobalStyle } from 'styled-components';
 import { GameProvider } from './utils/context';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
@@ -27,7 +26,6 @@ ReactDOM.createRoot(document.querySelector('#root')).render(
             <Route path='/game' element={<Game />}/>
             <Route path='/result' element={<Result />}/>
         </Routes>
-            <Music/>
           <GlobalStyle/>
       </GameProvider>
     </Router>

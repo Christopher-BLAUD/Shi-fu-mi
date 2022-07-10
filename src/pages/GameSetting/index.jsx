@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom'
-import Mute from "../../components/Mute";
 
 
 function GameSetting() {
@@ -13,7 +12,6 @@ function GameSetting() {
                     <Mode bg="#12127e" to={'/home'} onClick={() => localStorage.clear()}>Jouer contre Maitre Wang</Mode>
                 </GameMode>
             </GameModeContainer>
-            <Mute/>
         </SettingWrapper>
     )
 }

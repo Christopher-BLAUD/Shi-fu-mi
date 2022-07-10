@@ -1,9 +1,19 @@
 import styled from "styled-components"
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { GameContext } from "../../utils/context"
 
 function SettingsButton() {
+    const {setChoice, setComputerChoice} = useContext(GameContext)
+    
+    // Au clique sur sur l'icone, le state des deux modes de jeux se réinitialise 
+
     return (
-        <Settings to={'/'} onClick={() => localStorage.clear()}><i className="fa-solid fa-gear"></i></Settings>
+        <Settings to={'/'} onClick={() => {
+            localStorage.clear()
+            setChoice("")
+            setComputerChoice(null)
+        }}><i className="fa-solid fa-gear"></i></Settings>
     )
 }
 
