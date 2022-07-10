@@ -20,6 +20,13 @@ const Settings = styled(Link)`
     margin: 10px;
     cursor: pointer;
     text-decoration: none;
+    transition: all 200ms ease-in-out;
+    &:hover{
+        transform:  rotate(360deg);
+    }
+    & i{
+        font-size: 1.1em;
+    }
 `
 
 export default SettingsButton

@@ -2,14 +2,10 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom'
 import Mute from "../../components/Mute";
 
+
 function GameSetting() {
     return (
         <SettingWrapper>
-            <TitleGame>
-                <TitleWord>SHI</TitleWord>
-                <TitleWord marginTop="3px">FU</TitleWord>
-                <TitleWord>MI</TitleWord>
-            </TitleGame>
             <GameModeContainer>
                 <WelcomeMsg>Bienvenue dans Shi fu mi. Veuillez choisir un mode de jeu.</WelcomeMsg>
                 <GameMode>
@@ -38,6 +34,7 @@ const GameModeContainer = styled.div`
     padding: 30px;
     background-color: #fcefd9;
     border-radius: 10px;
+    border: 3px solid #fff;
     margin: 50px 0;
     @media screen and (max-width: 768px){
         padding: 0;
@@ -47,23 +44,6 @@ const GameModeContainer = styled.div`
     }
     @media screen and (min-width: 768px) and (max-width: 1024px){
         width: 500px;
-    }
-`
-
-const TitleGame = styled.h1`
-    display: flex;
-    font-size: 1.7em;
-    color: #A16800;
-    margin: 20px 0;
-`
-
-const TitleWord = styled.span`
-    margin: 0;
-    font-size: 1.7em;
-    margin-top: ${props => props.marginTop};
-    color: #A16800;
-    @media screen and (max-width: 768px){
-        font-size: 35px;
     }
 `
 

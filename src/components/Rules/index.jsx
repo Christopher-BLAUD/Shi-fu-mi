@@ -45,6 +45,10 @@ const RulesLink = styled.a`
     margin: 10px;
     align-self: flex-end;
     cursor: pointer;
+    transition: all 200ms ease-in-out;
+    &:hover{
+        transform: scale(0.9);
+    }
 `
 
 const RulesWrapper = styled.div`

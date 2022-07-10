@@ -306,10 +306,10 @@ const Redirect = styled(Link)`
     transition: all 200ms;
     text-decoration: none;
     &:hover{
-        transform: scale(1.1)
+        transform: scale(0.9)
     }
     &:hover{
-        transform: scale(1.1)
+        transform: scale(0.9)
     }
     @media screen and (max-width: 768px){
         padding: 10px 50px;

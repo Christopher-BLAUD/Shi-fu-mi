@@ -112,9 +112,9 @@ const IconWrapper = styled.div`
     align-items: center;
     animation: ${ShowGame} 1s linear ${props => props.delay} both;
     cursor: pointer;
-    transition: all 500ms;
+    transition: all 200ms;
     &:hover{
-        transform: scale(1.2);
+        transform: scale(0.9);
         @media screen and (max-width: 768px){
         transform: scale(1);
     }

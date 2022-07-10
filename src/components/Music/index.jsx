@@ -8,7 +8,7 @@ function Music() {
 
     return (
         <>
-            {isMute === false && <audio src={Track} autoPlay={true} loop={true}></audio>}
+            {isMute === false && <audio src={Track} autoPlay={true} loop={true} preload="auto"></audio>}
         </>
     )
 }

@@ -23,8 +23,12 @@ const MuteContainer = styled.div`
     border: 3px solid #af7317;
     background-color: #ffffff52;
     cursor: pointer;
+    transition: all 200ms ease-in-out;
     & i{
         color: #A16800;
+    }
+    &:hover{
+        transform: scale(0.9);
     }
 `
 

@@ -69,6 +69,7 @@ const InfoContainer = styled.div`
     align-items: center;
     background-color: #fcefd9;
     border-radius: 10px;
+    border: 3px solid #fff;
     padding: 15px 50px;
     @media screen and (max-width: 768px){
         padding: 10px;
